@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chapter I: The Arrival</title>
+
+    <link rel="icon" type="image/png" href="Images/favicon.png">
+    <link rel="stylesheet" href="css/intro.css">
+</head>
+
+<body>
+
+    <div class="intro-container">
+        <p id="chapter-title">CHAPTER I</p>
+        <h1 id="intro-title"></h1>
+    </div>
+
+    <div class="location-scene">
+
+        <video id="intro-video" autoplay playsinline>
+            <source src="Videos/introvideo.mp4" type="video/mp4">
+        </video>
+
+        <p id="location-text"></p>
+
+    </div>
+    <div id="ocean-scene">
+
+        <img
+            src="GIF/midocean.gif"
+            id="ocean-gif"
+            alt="Ocean"
+        >
+
+        <p id="ocean-location"></p>
+
+        <audio id="ocean-audio" preload="auto">
+            <source src="Audio/seawaves.wav" type="audio/wav">
+        </audio>
+
+    </div>
+
+    <div id="girl-scene" hidden>
+
+        <img
+            src="GIF/girlonrock.gif"
+            alt="Girl on rocky shoreline"
+        >
+
+        <div class="girl-caption">
+            <p id="girl-subtitle">
+                SHE ARRIVED WITH THE TIDE.
+            </p>
+        </div>
+
+    </div>
+
+    <button id="skip-video">SKIP VIDEO</button>
+
+    <script src="js/introSound.js"></script>
+    <script src="js/intro.js"></script>
+
+</body>
+</html>

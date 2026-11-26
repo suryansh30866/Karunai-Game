@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="terrain.css">
+    <title>Silent Drop | Karunai Air Command</title>
+</head>
+<body>
+    <main id="simulation">
+        <div id="scene-container"></div>
+        <div class="survey-frame" aria-hidden="true"></div>
+        <div class="survey-caption"><span class="registration" aria-hidden="true"></span><div><small>AERIAL SURVEY</small><b>Karunai Island</b></div></div>
+        <div class="flight-shade"></div>
+        <div id="flight-controls">
+            <button id="overview-button" type="button" hidden><i class="pause-icon" aria-hidden="true"></i>Pause</button>
+            <button id="sound-button" type="button" aria-label="Mute game sound" aria-pressed="true"><i class="audio-icon" aria-hidden="true"></i><span id="sound-state">Sound on</span></button>
+        </div>
+        <section id="mission-panel" aria-labelledby="mission-title">
+            <header class="command"><img class="command-photo" src="./assets/main.png" width="640" height="360" alt=""><span>Karunai Air Command<small>Flight operations</small></span></header>
+            <div class="order">
+                <div class="order-line"><span>Operation order</span><span>Chapter 01</span></div>
+                <h1 id="mission-title">Silent<br> Drop</h1>
+                <dl class="manifest">
+                    <div><dt>Callsign</dt><dd>Rook 1</dd></div>
+                    <div><dt>Tasking</dt><dd>Personnel airdrop</dd></div>
+                    <div><dt>Payload</dt><dd>4 squads / 12 troops</dd></div>
+                </dl>
+            </div>
+            <div class="tasking">
+                <div class="readout"><strong id="mission-stage">Mission brief</strong><span id="mission-clock"></span></div>
+                <p id="mission-guide">Fly the assigned route. Release each squad when its drop window opens.</p>
+                <p id="mission-message" role="status"></p>
+                <button id="aircraft-button" type="button" disabled>Begin sortie</button>
+                <button id="drop-button" type="button" disabled hidden>Release squad <kbd>Space</kbd></button>
+            </div>
+        </section>
+        <div class="callsign"><span>Callsign</span>Rook 1</div>
+        <div id="flight-strip" hidden>
+            <div class="instrument"><small>THR</small><strong id="throttle"></strong></div>
+            <div class="compass"><strong id="heading"></strong><canvas id="heading-tape" width="512" height="58" aria-hidden="true"></canvas></div>
+            <div class="instrument"><small>RNG</small><strong id="range">—</strong></div>
+        </div>
+        <div id="boundary" role="status" hidden>Airspace limit · turning back</div>
+        <div id="zone-marker" aria-hidden="true" hidden><i></i><span></span></div>
+        <aside id="map-panel" aria-label="Pilot navigation display" hidden>
+            <canvas id="route-map" width="300" height="230" aria-label="Aircraft and current drop zone"></canvas>
+            <div class="map-foot"><span>Squads away</span><strong id="drop-count">0 / 4</strong></div>
+        </aside>
+        <div id="control-hint"></div>
+    </main>
+    <section id="chapter-end" aria-labelledby="end-title" tabindex="-1" hidden><h2 id="end-title">CHAPTER 2 COMING SOON</h2></section>
+    <div id="loading-screen">
+        <img class="command-photo" src="./assets/air-command-flypast.png" width="640" height="360" alt=""><strong>Silent Drop</strong>
+        <div id="loading-text" role="status">Preparing airspace…</div>
+        <input id="model-files" type="file" accept=".glb" multiple hidden aria-label="Choose the island, aircraft and soldier GLB files from the 3D folder">
+        <div id="progress-track"><div id="progress-bar"></div></div>
+    </div>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script src="/js/terrain.js"></script>
+</body>
+</html>
